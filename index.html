@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Direct link to your WhatsApp contacts | WhatZap.space</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Direct link to your WhatsApp contacts</h1>
+    <input v-model="number" type="number">
+    <br>
+    <a v-bind:href="href">+{{ number }}</a>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        number: '1234',
+      },
+      computed: {
+        href: function () {
+          return 'whatsapp://send?phone=+' + this.number + '&text=abc'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
