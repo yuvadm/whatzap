@@ -12,3 +12,6 @@ div#app {
     height: 100vh;
     text-align: center;
 }
+div#link {
+    margin-top: 20px;
+}

@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Direct link to your WhatsApp contacts | WhatZap.space</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="cc.js"></script>
   <script src="vue.min.js"></script>
 </head>
 <body>
   <div id="app">
     <h1>Direct link to your WhatsApp contacts</h1>
     <div id="input">
-      <input v-model="tel" pattern="\d*">
+      <input v-model="number" pattern="\d*">
     </div>
     <div id="link">
        <a v-bind:href="href">+{{ number }}</a>
@@ -22,7 +23,7 @@
     var app = new Vue({
       el: '#app',
       data: {
-        number: '1234',
+        number: '',
       },
       computed: {
         href: function () {
@@ -41,7 +42,7 @@
       }
     });
     function locationCallback(res) {
-      console.log(res);
+      app.number = cc[res['country']];
     }
   </script>
 </body>
